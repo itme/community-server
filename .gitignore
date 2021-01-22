@@ -3,6 +3,7 @@
 /componentsjs-error-state.json
 /coverage
 /data
+/docs/generated
 /dist
 /node_modules
 tsconfig.tsbuildinfo
