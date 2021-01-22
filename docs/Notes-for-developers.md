@@ -81,3 +81,16 @@ The process will _halt_ until you confirm the changes in `CHANGELOG.md`.
 Before confirming, it is recommended to have a look at this file, move around the commits if needed, and save the file.
 
 **Note:** The changelog generator will make use of git tags to determine the range commit. While `npm version` will generate a git tag, you can also create one manually if you want to follow a different release process.
+
+# FAQ
+### Unable to include my component in the config file
+
+You may be getting an error in the form of:
+```
+Error: Invalid components file... Could not expand the JSON-LD shortcut "MyClass". Are all the required modules available and JSON-LD contexts included?'
+```
+
+This could have several causes:
+* The class is not exported from `index.ts`.
+* The used component name does not correspond to the exported class name.
+* The class has not been compiled using `npm run build`.
