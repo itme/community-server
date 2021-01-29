@@ -3,5 +3,6 @@
   "hideGenerator": true,
   "entryPoints": "src",
   "includeVersion": true,
+  "plugin": "typedoc-plugin-markdown",
   "out": "docs/generated"
 }
