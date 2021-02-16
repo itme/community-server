@@ -1,0 +1,46 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+executors:
+  coopctl:
+    docker:
+      - image: colabcoop/coopernetes-deploy:0.8.0
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASSWORD
+
+jobs:
+  staging:
+    environment:
+      HELMFILE_ENVIRONMENT: staging
+    executor: coopctl
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Deploy staging pod host
+          command: coopctl deploy
+  production:
+    environment:
+      HELMFILE_ENVIRONMENT: production
+    executor: coopctl
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Deploy itme.coop pod host
+          command: coopctl deploy
+
+workflows:
+   deploy:
+     jobs:
+       - staging:
+          context: thich-nhat-hanh
+          filters:
+             branches:
+               ignore: master
+       - production:
+          context: thich-nhat-hanh
+          filters:
+             branches:
+               only: master
