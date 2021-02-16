@@ -7,7 +7,7 @@ environments:
   staging:
 
 releases:
-  - name: community-solid-server
+  - name: solid
     namespace: {{ .Environment.Name }}-css
     chart: itme/community-solid-server
     version: 0.1.2
