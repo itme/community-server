@@ -1,0 +1,15 @@
+repositories:
+- name: itme
+  url: https://itme.github.io/charts
+
+environments:
+  production:
+  staging:
+
+releases:
+  - name: community-solid-server
+    namespace: {{ .Environment.Name }}-css
+    chart: itme/community-solid-server
+    version: 0.1.0
+    values:
+     - ./values/{{ .Environment.Name}}.yaml.gotmpl
