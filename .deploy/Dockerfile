@@ -2,7 +2,7 @@ FROM node:14.10.0-alpine
 LABEL maintainer="Ian Davis <ian@itme.email>"
 
 WORKDIR /community-solid-server
-RUN mkdir /var/lib/solid/data
+RUN mkdir -p /var/lib/solid/data
 
 # Install app dependencies (extra layer for caching reasons)
 COPY package*.json ./
