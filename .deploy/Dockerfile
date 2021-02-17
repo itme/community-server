@@ -4,13 +4,8 @@ LABEL maintainer="Ian Davis <ian@itme.email>"
 WORKDIR /community-solid-server
 RUN mkdir -p /var/lib/solid/data
 
-# Install app dependencies (extra layer for caching reasons)
-COPY package*.json ./
-RUN npm install
-
 COPY . .
-RUN npm audit --production --audit-level=high
-RUN npm install
+RUN npm ci
 
 EXPOSE 3000
 
