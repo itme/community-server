@@ -10,6 +10,6 @@ releases:
   - name: solid
     namespace: {{ .Environment.Name }}-css
     chart: itme/community-solid-server
-    version: 0.2.1
+    version: 0.2.2
     values:
      - ./values/{{ .Environment.Name}}.yaml.gotmpl
