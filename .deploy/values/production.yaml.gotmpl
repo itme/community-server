@@ -1,6 +1,8 @@
 host: production-css.itme.host
 image:
   tag: {{ requiredEnv "DOCKER_TAG" }}
+solid:
+  config: "config/config-file.json"
 imageCredentials:
   user: {{ requiredEnv "DOCKER_USER" }}
   password: {{ requiredEnv "DOCKER_PASSWORD" }}
