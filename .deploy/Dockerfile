@@ -5,7 +5,7 @@ WORKDIR /community-solid-server
 RUN mkdir -p /var/lib/solid/data
 
 COPY . .
-RUN npm ci
+RUN npm ci --unsafe-perm
 
 EXPOSE 3000
 
