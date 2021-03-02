@@ -5,7 +5,7 @@ WORKDIR /community-solid-server
 RUN mkdir -p /var/lib/solid/data
 
 COPY . .
-RUN npm ci --unsafe-perm
+RUN npm ci --ignore-scripts && npm run build
 
 EXPOSE 3000
 
